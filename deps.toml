@@ -1,0 +1,6 @@
+# deps.toml — keep this in sync with pyproject.toml's optional-dependencies
+[deps]
+redis      = "redis/redis-py"
+msgspec    = "jcrist/msgspec"
+xxhash     = "ifduyue/python-xxhash"
+zstandard  = "indygreg/python-zstandard"

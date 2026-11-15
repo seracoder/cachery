@@ -1,0 +1,19 @@
+# See https://pre-commit.com for more information
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.16.6
+    hooks:
+      - id: ruff
+        args: [--fix]
+      - id: ruff-format
+  # Run the *project* mypy (reads pyproject.toml, same as CI) instead of the
+  # pinned mirrors-mypy build, whose older version flags the optional-extra
+  # import pattern (try: import x as _x / except: _x = None) differently.
+  - repo: local
+    hooks:
+      - id: mypy
+        name: mypy (strict, project config)
+        entry: uv run mypy
+        language: system
+        types: [python]
+        pass_filenames: false
